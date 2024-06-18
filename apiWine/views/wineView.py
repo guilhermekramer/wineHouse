@@ -5,8 +5,8 @@ from ..serializers.wineSerializer import WineSerializer
 from rest_framework.decorators import api_view
 from rest_framework import status
 from rest_framework.response import Response
-
-
+from drf_yasg.utils import swagger_auto_schema
+from drf_yasg import openapi
 
 
 @api_view(["GET"])
@@ -18,6 +18,14 @@ def wine_list(request):
         return JsonResponse({"Winery": serializer.data})
 
 
+@swagger_auto_schema(
+    method="post",
+    request_body=WineSerializer,
+    responses={
+        201: openapi.Response("Created", WineSerializer),
+        400: "Bad Request",
+    },
+)
 @api_view(["POST"])
 def create_wine(request):
     if (request.method) == "POST":
