@@ -20,6 +20,7 @@ from django.urls import include, path
 from apiWine.views import wineView
 from rest_framework import routers
 
+from apiWine.views.favoriteView import FavortieViewSet
 from apiWine.views.userView import UserViewSet
 from rest_framework_simplejwt.views import (
     TokenObtainPairView,
@@ -28,6 +29,7 @@ from rest_framework_simplejwt.views import (
 
 router = routers.DefaultRouter()
 router.register("user", UserViewSet)
+router.register("favorite", FavortieViewSet)
 
 urlpatterns = [
     path("token/", TokenObtainPairView.as_view(), name="token_obtain_pair"),

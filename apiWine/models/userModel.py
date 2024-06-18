@@ -1,4 +1,5 @@
 from django.db import models
+from .favoriteModel import Favorite
 
 
 class User(models.Model):
@@ -7,8 +8,7 @@ class User(models.Model):
     password = models.CharField(max_length=150)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    isAdmin = models.BooleanField(default=False)
-  
+    is_admin = models.BooleanField(default=False)
 
     def __str__(self):
         return self.name

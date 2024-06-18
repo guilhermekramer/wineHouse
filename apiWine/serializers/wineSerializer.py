@@ -5,4 +5,6 @@ class WineSerializer(serializers.ModelSerializer):
     class Meta:
         model = Wine
         fields = '__all__'
+    
+    
         
